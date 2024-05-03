@@ -39,5 +39,8 @@ public class Instantiation implements CommandLineRunner {
 		Post post2 = new Post(null, LocalDate.parse("03/05/2024", DateTimeFormatter.ofPattern("dd/MM/yyyy")), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(elon));
 
 		postRepository.saveAll(Arrays.asList(post1, post2));
+		
+		elon.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(elon);	
 	}
 }
